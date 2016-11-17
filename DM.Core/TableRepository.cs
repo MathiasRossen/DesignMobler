@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace DM.Core
 {
-    class TableRepository
+    public class TableRepository : ITableRepository
     {
+        Table savetable;
+
+        public Table SaveTable
+        {
+            get
+            {
+                return savetable;
+            }
+
+            set
+            {
+                savetable = value;
+            }
+        }
     }
 }

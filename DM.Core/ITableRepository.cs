@@ -2,5 +2,6 @@
 {
     interface ITableRepository
     {
+        Table SaveTable { get; set; }
     }
 }
