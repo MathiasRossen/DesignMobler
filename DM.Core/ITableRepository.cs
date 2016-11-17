@@ -2,6 +2,8 @@
 {
     interface ITableRepository
     {
-        Table SaveTable { get; set; }
+        Table Savetable { get; set; }
+
+        //Table Loadtable { get; set; }
     }
 }

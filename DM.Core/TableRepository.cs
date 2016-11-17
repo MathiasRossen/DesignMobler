@@ -9,8 +9,9 @@ namespace DM.Core
     public class TableRepository : ITableRepository
     {
         Table savetable;
+        //Table loadtable
 
-        public Table SaveTable
+        public Table Savetable
         {
             get
             {
@@ -22,5 +23,18 @@ namespace DM.Core
                 savetable = value;
             }
         }
+
+        //public table Loadtable
+        //{
+        //    get
+        //    {
+        //        return loadtable;
+        //    }
+
+        //    set
+        //    {
+        //        loadtable = value;
+        //    }
+        //}
     }
 }

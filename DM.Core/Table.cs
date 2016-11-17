@@ -23,6 +23,11 @@
             set { wareId = value; }
         }
 
+        public enum Shape
+        {
+            Square, Circle, oval, Special,
+        };
+
         public Table(int width, int length)
         {
             this.width = width;
