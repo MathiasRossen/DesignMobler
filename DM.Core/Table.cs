@@ -40,7 +40,7 @@
 
         public override string ToString()
         {
-            return "VareNR=" + wareId + "width=" + width + " height=" + height;
+            return "VareNR=" + wareId + "width=" + width + " length=" + length;
         }
 
         #endregion
