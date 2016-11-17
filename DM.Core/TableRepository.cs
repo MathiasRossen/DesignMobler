@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DM.Core
 {
-    public class TableRepository
+    class TableRepository
     {
     }
 }
