@@ -8,33 +8,16 @@ namespace DM.Core
 {
     public class TableRepository : ITableRepository
     {
-        Table savetable;
-        //Table loadtable
-
-        public Table Savetable
+        public Table Loadtable()
         {
-            get
-            {
-                return savetable;
-            }
-
-            set
-            {
-                savetable = value;
-            }
+            throw new NotImplementedException();
         }
 
-        //public table Loadtable
-        //{
-        //    get
-        //    {
-        //        return loadtable;
-        //    }
+        public void SaveTable()
+        {
+            throw new NotImplementedException();
+        }
 
-        //    set
-        //    {
-        //        loadtable = value;
-        //    }
-        //}
+
     }
 }
