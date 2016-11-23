@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace DM.Core
 {
-    class TableRepository
+    public class TableRepository : ITableRepository
     {
+        public Table Loadtable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveTable()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

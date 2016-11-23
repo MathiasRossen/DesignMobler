@@ -42,6 +42,11 @@ namespace DM.Core
             return tables.Count.ToString();
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         #endregion
     }
 }

@@ -2,5 +2,7 @@
 {
     interface ITableRepository
     {
+        void SaveTable();
+        Table Loadtable();
     }
 }
