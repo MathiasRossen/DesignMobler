@@ -72,6 +72,59 @@ namespace DM.UnitTests
             Table table = order.GetTable(0);
 
             Assert.AreEqual(1100, table.WareId);
+            Assert.AreEqual(100, table.Length);
+            Assert.AreEqual(100, table.Width);
+        }
+
+        [TestMethod]
+        public void CanFindTableByWareId()
+        {
+            Order order = new Order();
+            order.AddTable(new Table(1000));
+            order.AddTable(new Table(1100));
+            order.AddTable(new Table(1200));
+
+            Table tableOne = order.GetTable();
+            Table tableTwo = order.GetTable(1);
+            Table tableThree = order.GetTable(2);
+
+            Assert.AreEqual(1000, tableOne.WareId);
+            Assert.AreEqual(100, tableOne.Length);
+            Assert.AreEqual(100, tableOne.Width);
+
+            Assert.AreEqual(1100, tableTwo.WareId);
+            Assert.AreEqual(200, tableTwo.Length);
+            Assert.AreEqual(150, tableTwo.Width);
+
+            Assert.AreEqual(1200, tableThree.WareId);
+            Assert.AreEqual(400, tableThree.Length);
+            Assert.AreEqual(300, tableThree.Width);
+        }
+
+        [TestMethod]
+        public void CanAddMoreTablesOfSameType()
+        {
+            Order order = new Order();
+            order.AddTable(new Table(1000));
+            order.AddTable(new Table(1000));
+
+            Table table = order.GetTable();
+
+            Assert.AreEqual(2, table.Quantity);
+        }
+
+        [TestMethod]
+        public void CanEditQuantity()
+        {
+            Order order = new Order();
+            Table table = new Table(1000);
+            table.Quantity = 5;
+            order.AddTable(table);
+
+            order.EditQuantity(1000, 10);
+            Table expectedTable = order.GetTable();
+
+            Assert.AreEqual(10, expectedTable.Quantity);
         }
         
     }

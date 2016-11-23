@@ -2,21 +2,31 @@
 {
     public class Table
     {
-        
         public int Width { get; set; }
         public int Length { get; set; }
         public int WareId { get; set; }
+        public int Quantity { get; set; }
 
-        public Table(int width, int length)
+        public Table(int wareId)
         {
-            Width = width;
-            Length = length;
+            ITableRepository tr = new TableRepository();
+            Table tableToLoad = tr.LoadTable(wareId);
+            WareId = tableToLoad.WareId;
+            Length = tableToLoad.Length;
+            Width = tableToLoad.Width;
+            Quantity = 1;
         }
 
-        public Table(int wareId, int width, int length)
+        public Table(int length, int width)
         {
             Width = width;
             Length = length;
+            Quantity = 1;
+        }
+
+        public Table(int wareId, int length, int width)
+            :this(length, width)
+        {
             WareId = wareId;
         }
 

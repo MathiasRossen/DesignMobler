@@ -10,7 +10,15 @@ namespace DM.Core
 
         public void AddTable(Table table)
         {
-            tables.Add(table);
+            if (!tables.Exists(x => x.Equals(table)))
+                tables.Add(table);
+            else
+                tables.Find(x => x.WareId == table.WareId).Quantity += table.Quantity;
+        }
+
+        public void EditQuantity(int wareId, int newQuantity)
+        {
+            tables.Find(x => x.WareId == wareId).Quantity = newQuantity;
         }
 
         public void RemoveTable(int index)
@@ -26,6 +34,10 @@ namespace DM.Core
         public void ClearOrder()
         {
             tables.Clear();
+        }
+        public Table GetTable()
+        {
+            return tables.First();
         }
 
         public Table GetTable(int index)

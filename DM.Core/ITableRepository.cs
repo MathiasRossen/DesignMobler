@@ -2,7 +2,7 @@
 {
     interface ITableRepository
     {
-        void SaveTable();
-        Table Loadtable();
+        void SaveTable(Table table);
+        Table LoadTable(int wareId);
     }
 }
