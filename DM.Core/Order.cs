@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 
 namespace DM.Core
@@ -15,6 +16,11 @@ namespace DM.Core
         public void RemoveTable(int index)
         {
             tables.RemoveAt(index);
+        }
+
+        public void RemoveTable(Table table)
+        {
+            tables.RemoveAll(x => x.Equals(table));
         }
 
         public void ClearOrder()

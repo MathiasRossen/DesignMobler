@@ -72,12 +72,6 @@ namespace DM.UnitTests
             Table table = order.GetTable(0);
 
             Assert.AreEqual(1100, table.WareId);
-            Assert.AreEqual(Edge.Nature, table.TableEdge);
-            Assert.AreEqual(Shape.Rectangle, table.TableShape);
-            Assert.AreEqual(0, table.Extractions);
-            Assert.AreEqual(Surface.H1, table.TableSurface);
-            Assert.AreEqual(1, table.Quantity);
-            Assert.AreEqual(0, table.ExtraBoards);
         }
         
     }

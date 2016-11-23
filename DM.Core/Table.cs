@@ -2,50 +2,41 @@
 {
     public class Table
     {
-        int width, length;
-        int wareId;
-
-        public int Width 
-        {
-            get { return width; }
-            set { width = value; }
-        }
-
-        public int Length
-        {
-            get { return length; }
-            set { length = value; }
-        }
-
-        public int WareId
-        {
-            get { return wareId; }
-            set { wareId = value; }
-        }
-
-        public enum Shape
-        {
-            Square, Circle, oval, Special,
-        };
+        
+        public int Width { get; set; }
+        public int Length { get; set; }
+        public int WareId { get; set; }
 
         public Table(int width, int length)
         {
-            this.width = width;
-            this.length = length;
+            Width = width;
+            Length = length;
         }
 
         public Table(int wareId, int width, int length)
         {
-            this.width = width;
-            this.length = length;
-            this.wareId = wareId;
+            Width = width;
+            Length = length;
+            WareId = wareId;
         }
 
         #region Overrides
 
         public override string ToString()
         {
-            return "VareNR=" + wareId + "width=" + width + " length=" + length;
+            return "VareNR=" + WareId + " width=" + Width + " length=" + Length;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ToString() == obj.ToString())
+                return true;
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return WareId;
         }
 
         #endregion
