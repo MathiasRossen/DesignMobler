@@ -40,15 +40,29 @@ namespace DM.UnitTests
             string expected = "2";
             Assert.AreEqual(expected, order.ToString());
 
-            order.RemoveTable(0);
+            order.RemoveTable(1);
             expected = "1";
+            Assert.AreEqual(expected, order.ToString());
+
+            order.RemoveTable(0);
+            expected = "0";
+            Assert.AreEqual(expected, order.ToString());
+        }
+
+        [TestMethod]
+        public void CanClearTablesFromOrder()
+        {
+            Order order = new Order();
+            order.AddTable(new Table(100, 100));
+            order.AddTable(new Table(150, 150));
+
+            string expected = "2";
             Assert.AreEqual(expected, order.ToString());
 
             order.ClearOrder();
             expected = "0";
             Assert.AreEqual(expected, order.ToString());
         }
-
         [TestMethod]
         public void CanGetTableInfo()
         {
@@ -65,5 +79,6 @@ namespace DM.UnitTests
             Assert.AreEqual(1, table.Quantity);
             Assert.AreEqual(0, table.ExtraBoards);
         }
+        
     }
 }

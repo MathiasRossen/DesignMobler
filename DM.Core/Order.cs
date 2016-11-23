@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 
+
 namespace DM.Core
 {
     public class Order
@@ -26,6 +27,7 @@ namespace DM.Core
             return tables[index];
         }
 
+             
         #region Overrides
 
         public override bool Equals(object obj)

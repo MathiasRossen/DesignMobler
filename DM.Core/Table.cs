@@ -1,144 +1,43 @@
 ﻿namespace DM.Core
 {
-    public enum Edge { Nature, Black, White }
-    public enum Shape { Rectangle, Circle, Oval, Curved }
-    public enum Surface { H1, F2, F3, F4, F5, F6, F7, N8, N9, N10 }
     public class Table
     {
-        int width, height;
+        int width, length;
         int wareId;
-        Edge tableEdge;
-        Shape tableShape;
-        Surface tableSurface;
-        int extraBoards;
-        int quantity;
-        int extractions;
 
-        public int Width
+        public int Width 
         {
-            get
-            {
-                return width;
-            }
-            set
-            {
-                width = value;
-            }
+            get { return width; }
+            set { width = value; }
         }
 
-        public int Height
+        public int Length
         {
-            get
-            {
-                return height;
-            }
-            set
-            {
-                height = value;
-            }
+            get { return length; }
+            set { length = value; }
         }
 
         public int WareId
         {
-            get
-            {
-                return wareId;
-            }
-            set
-            {
-                wareId = value;
-            }
+            get { return wareId; }
+            set { wareId = value; }
         }
 
-        public Edge TableEdge
+        public enum Shape
         {
-            get
-            {
-                return tableEdge;
-            }
-            set
-            {
-                tableEdge = value;
-            }
-        }
+            Square, Circle, oval, Special,
+        };
 
-        public Shape TableShape
-        {
-            get
-            {
-                return tableShape;
-            }
-            set
-            {
-                tableShape = value;
-            }
-        }
-
-        public Surface TableSurface
-        {
-            get
-            {
-                return tableSurface;
-            }
-            set
-            {
-                tableSurface = value;
-            }
-        }
-
-        public int ExtraBoards
-        {
-            get
-            {
-                return extraBoards;
-            }
-            set
-            {
-                extraBoards = value;
-            }
-        }
-
-        public int Quantity
-        {
-            get
-            {
-                return quantity;
-            }
-            set
-            {
-                quantity = value;
-            }
-        }
-
-        public int Extractions
-        {
-            get
-            {
-                return extractions;
-            }
-            set
-            {
-                extractions = value;
-            }
-        }
-
-
-        public Table(int width, int height)
+        public Table(int width, int length)
         {
             this.width = width;
-            this.height = height;
-            wareId = 0;
-            tableEdge = Edge.Nature;
-            tableShape = Shape.Rectangle;
-            tableSurface = Surface.H1;
-            extraBoards = 0;
-            quantity = 1;
-            extractions = 0;
+            this.length = length;
         }
 
-        public Table(int wareId, int width, int height)
-            :this(width, height)
+        public Table(int wareId, int width, int length)
         {
+            this.width = width;
+            this.length = length;
             this.wareId = wareId;
         }
 
@@ -146,9 +45,19 @@
 
         public override string ToString()
         {
-            return "VareNR=" + wareId + "width=" + width + " height=" + height;
+            return "VareNR=" + wareId + "width=" + width + " length=" + length;
         }
 
         #endregion
     }
 }
+// Mål:
+//       Parentes er ekstra pris.
+//          Form 1/2 + udtræk til fast,2,3 plader - 1,2,(3) plader 
+//          Ved fast plade er pladerne i ét stykke og ikke 2x halv.
+//    
+//  Form1   Kvadrat: 90x90, 100x100, 110x110, (120x120)
+//  Form2 Rektangel: Bredde x Længde
+//           Bredde: 90,100,110,120
+//           Længde: 140,160,180,200,220,240,(250),(260),(270)
+// 
