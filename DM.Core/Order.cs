@@ -6,43 +6,43 @@ namespace DM.Core
 {
     public class Order
     {
-        List<Table> tables = new List<Table>();
+        List<Board> boards = new List<Board>();
 
-        public void AddTable(Table table)
+        public void AddBoard(Board board)
         {
-            if (!tables.Exists(x => x.Equals(table)))
-                tables.Add(table);
+            if (!boards.Exists(x => x.Equals(board)))
+                boards.Add(board);
             else
-                tables.Find(x => x.WareId == table.WareId).Quantity += table.Quantity;
+                boards.Find(x => x.WareId == board.WareId).Quantity += board.Quantity;
         }
 
         public void EditQuantity(int wareId, int newQuantity)
         {
-            tables.Find(x => x.WareId == wareId).Quantity = newQuantity;
+            boards.Find(x => x.WareId == wareId).Quantity = newQuantity;
         }
 
-        public void RemoveTable(int index)
+        public void RemoveBoard(int index)
         {
-            tables.RemoveAt(index);
+            boards.RemoveAt(index);
         }
 
-        public void RemoveTable(Table table)
+        public void RemoveBoard(Board board)
         {
-            tables.RemoveAll(x => x.Equals(table));
+            boards.RemoveAll(x => x.Equals(board));
         }
 
         public void ClearOrder()
         {
-            tables.Clear();
+            boards.Clear();
         }
-        public Table GetTable()
+        public Board GetBoard()
         {
-            return tables.First();
+            return boards.First();
         }
 
-        public Table GetTable(int index)
+        public Board GetBoard(int index)
         {
-            return tables[index];
+            return boards[index];
         }
 
              
@@ -57,7 +57,7 @@ namespace DM.Core
 
         public override string ToString()
         {
-            return tables.Count.ToString();
+            return boards.Count.ToString();
         }
 
         public override int GetHashCode()

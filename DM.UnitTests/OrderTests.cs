@@ -17,44 +17,44 @@ namespace DM.UnitTests
         }
 
         [TestMethod]
-        public void CanAddTablesToOrder()
+        public void CanAddBoardsToOrder()
         {
-            Table table = new Table(100, 100);
+            Board board = new Board(100, 100);
             Order order = new Order();
-            order.AddTable(table);
+            order.AddBoard(board);
 
             string expected = "1";
 
             Assert.AreEqual(expected, order.ToString());
-            Assert.AreEqual(table.ToString(), order.GetTable(0).ToString());
-            Assert.AreNotEqual(new Table(150, 100).ToString(), order.GetTable(0).ToString());
+            Assert.AreEqual(board.ToString(), order.GetBoard(0).ToString());
+            Assert.AreNotEqual(new Board(150, 100).ToString(), order.GetBoard(0).ToString());
         }
 
         [TestMethod]
-        public void CanDeleteTableFromOrder()
+        public void CanDeleteBoardFromOrder()
         {
             Order order = new Order();
-            order.AddTable(new Table(100, 100));
-            order.AddTable(new Table(150, 150));
+            order.AddBoard(new Board(100, 100));
+            order.AddBoard(new Board(150, 150));
 
             string expected = "2";
             Assert.AreEqual(expected, order.ToString());
 
-            order.RemoveTable(1);
+            order.RemoveBoard(1);
             expected = "1";
             Assert.AreEqual(expected, order.ToString());
 
-            order.RemoveTable(0);
+            order.RemoveBoard(0);
             expected = "0";
             Assert.AreEqual(expected, order.ToString());
         }
 
         [TestMethod]
-        public void CanClearTablesFromOrder()
+        public void CanClearBoardsFromOrder()
         {
             Order order = new Order();
-            order.AddTable(new Table(100, 100));
-            order.AddTable(new Table(150, 150));
+            order.AddBoard(new Board(100, 100));
+            order.AddBoard(new Board(150, 150));
 
             string expected = "2";
             Assert.AreEqual(expected, order.ToString());
@@ -64,67 +64,89 @@ namespace DM.UnitTests
             Assert.AreEqual(expected, order.ToString());
         }
         [TestMethod]
-        public void CanGetTableInfo()
+        public void CanGetBoardInfo()
         {
             Order order = new Order();
-            order.AddTable(new Table(1100, 100, 100));
+            IBoardRepository br = new BoardRepository();
+            order.AddBoard(new Board(1000, br));
 
-            Table table = order.GetTable(0);
+            Board board = order.GetBoard(0);
 
-            Assert.AreEqual(1100, table.WareId);
-            Assert.AreEqual(100, table.Length);
-            Assert.AreEqual(100, table.Width);
+            Assert.AreEqual(1000, board.WareId);
+            Assert.AreEqual(100, board.Length);
+            Assert.AreEqual(100, board.Width);
         }
 
         [TestMethod]
-        public void CanFindTableByWareId()
+        public void CanFindBoardByWareId()
         {
             Order order = new Order();
-            order.AddTable(new Table(1000));
-            order.AddTable(new Table(1100));
-            order.AddTable(new Table(1200));
+            IBoardRepository br = new BoardRepository();
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1100, br));
+            order.AddBoard(new Board(1200, br));
 
-            Table tableOne = order.GetTable();
-            Table tableTwo = order.GetTable(1);
-            Table tableThree = order.GetTable(2);
+            Board boardOne = order.GetBoard();
+            Board boardTwo = order.GetBoard(1);
+            Board boardThree = order.GetBoard(2);
 
-            Assert.AreEqual(1000, tableOne.WareId);
-            Assert.AreEqual(100, tableOne.Length);
-            Assert.AreEqual(100, tableOne.Width);
+            Assert.AreEqual(1000, boardOne.WareId);
+            Assert.AreEqual(100, boardOne.Length);
+            Assert.AreEqual(100, boardOne.Width);
 
-            Assert.AreEqual(1100, tableTwo.WareId);
-            Assert.AreEqual(200, tableTwo.Length);
-            Assert.AreEqual(150, tableTwo.Width);
+            Assert.AreEqual(1100, boardTwo.WareId);
+            Assert.AreEqual(200, boardTwo.Length);
+            Assert.AreEqual(150, boardTwo.Width);
 
-            Assert.AreEqual(1200, tableThree.WareId);
-            Assert.AreEqual(400, tableThree.Length);
-            Assert.AreEqual(300, tableThree.Width);
+            Assert.AreEqual(1200, boardThree.WareId);
+            Assert.AreEqual(400, boardThree.Length);
+            Assert.AreEqual(300, boardThree.Width);
         }
 
         [TestMethod]
-        public void CanAddMoreTablesOfSameType()
+        public void CanAddMoreBoardsOfSameType()
         {
             Order order = new Order();
-            order.AddTable(new Table(1000));
-            order.AddTable(new Table(1000));
+            IBoardRepository br = new BoardRepository();
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1000, br));
 
-            Table table = order.GetTable();
+            Board board = order.GetBoard();
 
-            Assert.AreEqual(2, table.Quantity);
+            Assert.AreEqual(2, board.Quantity);
         }
 
         [TestMethod]
         public void CanEditQuantity()
         {
             Order order = new Order();
-            Table table = new Table(1000);
-            table.Quantity = 5;
-            order.AddTable(table);
+            IBoardRepository br = new BoardRepository();
+            Board board = new Board(1000, br);
+            board.Quantity = 5;
+            order.AddBoard(board);
 
             order.EditQuantity(1000, 10);
-            Table expectedTable = order.GetTable();
+            Board expectedBoard = order.GetBoard();
 
-            Assert.AreEqual(10, expectedTable.Quantity);
+            Assert.AreEqual(10, expectedBoard.Quantity);
+        }
+
+        [TestMethod]
+        public void CanAddTableNotInRepository()
+        {
+            IBoardRepository br = new BoardRepository();
+            Board board = new Board(1400, br);
+
+            board.Width = 340;
+            board.Length = 400;
+            board.Extension = 1;
+            br.SaveBoard(board);
+
+            board = new Board(1400, br);
+
+            Assert.AreEqual(1400, board.WareId);
+            Assert.AreEqual(340, board.Width);
+            Assert.AreEqual(400, board.Length);
         }
         
     }
