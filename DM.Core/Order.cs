@@ -45,6 +45,11 @@ namespace DM.Core
             return boards[index];
         }
 
+        public List<Board> GetBoards()
+        {
+            return boards;
+        }
+
              
         #region Overrides
 

@@ -21,7 +21,7 @@ namespace DM.Core
 
         public Board LoadBoard(int wareId)
         {
-            if (boardList.Exists(x => x.WareId == wareId))
+            if (BoardExists(wareId))
                 return boardList.Find(x => x.WareId == wareId);
             else
                 return new Board(wareId, 0, 0);
@@ -34,7 +34,17 @@ namespace DM.Core
 
         public void SaveBoard(Board board)
         {
-            boardList.Add(board);
+            if (BoardExists(board.WareId))
+            {
+                //AKSJGJ
+            }
+            else
+                boardList.Add(board);
+        }
+
+        private bool BoardExists(int wareId)
+        {
+            return boardList.Exists(x => x.WareId == wareId);
         }
 
 
