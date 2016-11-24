@@ -10,6 +10,8 @@ namespace DM.UI
     {
         static void Main(string[] args)
         {
+            MainProgram mp = new MainProgram();
+            mp.Run();
         }
     }
 }
