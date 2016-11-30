@@ -23,6 +23,36 @@ namespace DM.UI
             {
                 Console.Clear();
                 DisplayMenu();
+
+                string choice = GetInput("Valg: ");
+
+                switch (choice.ToLower())
+                {
+                    case "1":
+                        Console.Clear();
+                        InsertBoard();
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        EditWare();
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        ShowOrders();
+                        Console.ReadLine();
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        EditQuantity();
+                        break;
+
+                    case "q":
+                        running = false;
+                        break;
+                }
             }
             while (running);
         }
@@ -55,33 +85,15 @@ namespace DM.UI
         {
             Console.WriteLine("Vælg en af mulighederne fra menuen eller skriv Q for at lukke programmet.");
             Console.WriteLine();
-            Console.WriteLine(" 1. Intast ny ordre");
-            Console.WriteLine(" 2. Redigér en ordre");
+            Console.WriteLine(" 1. Indtast ny ordre");
+            Console.WriteLine(" 2. Redigér ordre længde og bredde");
             Console.WriteLine(" 3. Se den nuværende ordre");
+            Console.WriteLine(" 4. Redigér antal");
             Console.WriteLine();
-            string choice = GetInput("Valg: ");
-
-            switch (choice)
-            {
-                case "1":
-                    InsertBoard();
-                    break;
-
-                case "2":
-                    Console.Clear();
-                    Console.WriteLine("NOT IMPLEMENTED");
-                    Console.ReadLine();
-                    break;
-
-                case "3":
-                    ShowOrders();
-                    break;
-            }
         }
 
         private void InsertBoard()
         {
-            Console.Clear();
             int wareId = GetParsedInput("Vare nummer: ");
 
             Board board = new Board(wareId, br);
@@ -92,11 +104,12 @@ namespace DM.UI
                 Console.WriteLine("Længde på plade: " + board.Length);
 
             if (board.Width == 0)
+            {
                 board.Width = GetParsedInput("Bredde på plade: ");
+                board = new Board(board.WareId, board.Length, board.Width, br);
+            }
             else
                 Console.WriteLine("Bredde på plade: " + board.Width);
-
-            if()
 
             board.Quantity = GetParsedInput("Antal: ");
 
@@ -105,21 +118,54 @@ namespace DM.UI
             Console.ReadLine();
         }
 
-        private void EditWareId(int wareId)
+        private void EditWare()
         {
+            ShowOrders();
+            Console.WriteLine();
 
+            int wareId = GetParsedInput("Vælg vare nummer, som skal redigéres: ");
+
+            Board boardToEdit = order.GetBoard(wareId);
+
+            if(boardToEdit != null)
+            {
+                Console.Clear();
+                DisplayBoardInfo(boardToEdit);
+
+                boardToEdit.Length = GetParsedInput("Indtast ny længde: ");
+                boardToEdit.Width = GetParsedInput("Indtast ny bredde: ");
+
+                order.EditBoard(boardToEdit, br);
+            }
+        }
+
+        private void EditQuantity()
+        {
+            ShowOrders();
+            Console.WriteLine();
+
+            int wareId = GetParsedInput("Vælg vare nummer, som skal redigéres: ");
+
+            Board boardToEdit = order.GetBoard(wareId);
+
+            if(boardToEdit != null)
+            {
+                int quantity = GetParsedInput("Skriv nyt antal: ");
+                order.EditQuantity(wareId, quantity);
+            }
         }
 
         private void ShowOrders()
         {
-            Console.Clear();
-
             foreach(Board board in order.GetBoards())
             {
-                Console.WriteLine("VareNr: {0}\tLængde: {1}\tBredde: {2}\tAntal: {3}", board.WareId, board.Length, board.Width, board.Quantity);
+                DisplayBoardInfo(board);
             }
+        }
 
-            Console.ReadLine();
+        private void DisplayBoardInfo(Board board)
+        {
+            Console.WriteLine("VareNr: {0,-7}Længde: {1,-7}Bredde: {2,-7}Antal: {3}", board.WareId, board.Length, board.Width, board.Quantity);
         }
     }
 }

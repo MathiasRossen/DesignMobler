@@ -36,7 +36,8 @@ namespace DM.Core
         {
             if (BoardExists(board.WareId))
             {
-                //AKSJGJ
+                FindBoard(board).Length = board.Length;
+                FindBoard(board).Width = board.Width;
             }
             else
                 boardList.Add(board);
@@ -45,6 +46,11 @@ namespace DM.Core
         private bool BoardExists(int wareId)
         {
             return boardList.Exists(x => x.WareId == wareId);
+        }
+
+        private Board FindBoard(Board board)
+        {
+            return boardList.Find(x => x.WareId == board.WareId);
         }
 
 

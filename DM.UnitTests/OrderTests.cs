@@ -70,7 +70,7 @@ namespace DM.UnitTests
             IBoardRepository br = new BoardRepository();
             order.AddBoard(new Board(1000, br));
 
-            Board board = order.GetBoard(0);
+            Board board = order.GetBoard();
 
             Assert.AreEqual(1000, board.WareId);
             Assert.AreEqual(100, board.Length);
@@ -86,9 +86,9 @@ namespace DM.UnitTests
             order.AddBoard(new Board(1100, br));
             order.AddBoard(new Board(1200, br));
 
-            Board boardOne = order.GetBoard();
-            Board boardTwo = order.GetBoard(1);
-            Board boardThree = order.GetBoard(2);
+            Board boardOne = order.GetBoard(1000);
+            Board boardTwo = order.GetBoard(1100);
+            Board boardThree = order.GetBoard(1200);
 
             Assert.AreEqual(1000, boardOne.WareId);
             Assert.AreEqual(100, boardOne.Length);
@@ -126,7 +126,7 @@ namespace DM.UnitTests
             order.AddBoard(board);
 
             order.EditQuantity(1000, 10);
-            Board expectedBoard = order.GetBoard();
+            Board expectedBoard = order.GetBoard(1000);
 
             Assert.AreEqual(10, expectedBoard.Quantity);
         }
@@ -147,6 +147,18 @@ namespace DM.UnitTests
             Assert.AreEqual(1400, board.WareId);
             Assert.AreEqual(340, board.Width);
             Assert.AreEqual(400, board.Length);
+        }
+
+        [TestMethod]
+        public void RepoCanEditBoard()
+        {
+            IBoardRepository br = new BoardRepository();
+            Board board = new Board(1000, 350, 400, br);
+
+            board = br.LoadBoard(1000);
+
+            Assert.AreEqual(350, board.Length);
+            Assert.AreEqual(400, board.Width);
         }
         
     }

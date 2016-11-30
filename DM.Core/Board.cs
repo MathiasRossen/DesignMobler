@@ -3,12 +3,36 @@
     public enum Surfaces { H1, F2, F3 ,F4, F5, F6, F7, N8, N9, N10 }
     public class Board
     {
+        private int quantity;
+        private int extension;
         public int Width { get; set; }
         public int Length { get; set; }
         public int WareId { get; set; }
-        public int Quantity { get; set; }
+        public int Quantity
+        {
+            get { return quantity; }
+            set
+            {
+                if (value <= 0)
+                    quantity = 1;
+                else
+                    quantity = value;
+            }
+        }
         public Surfaces Surface { get; set; }
-        public int Extension { get; set; }
+        public int Extension
+        {
+            get { return extension; }
+            set
+            {
+                if (value >= 3)
+                    extension = 3;
+                else if (value == 1 || value <= 0)
+                    extension = 0;
+                else
+                    extension = value;
+            }
+        }
 
         public Board(int wareId, IBoardRepository br)
         {
@@ -68,4 +92,4 @@
 //  Form2 Rektangel: Bredde x Længde
 //           Bredde: 90,100,110,120
 //           Længde: 140,160,180,200,220,240,250,260,270
-// 
+//  

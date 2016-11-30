@@ -40,14 +40,20 @@ namespace DM.Core
             return boards.First();
         }
 
-        public Board GetBoard(int index)
+        public Board GetBoard(int wareId)
         {
-            return boards[index];
+            return boards.Find(x => x.WareId == wareId);
         }
 
         public List<Board> GetBoards()
         {
             return boards;
+        }
+
+        public void EditBoard(Board board, IBoardRepository br)
+        {
+            Board boardToEdit = GetBoard(board.WareId);
+            boardToEdit = new Board(board.WareId, board.Length, board.Width, br);
         }
 
              
