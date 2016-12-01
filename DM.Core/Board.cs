@@ -4,8 +4,7 @@
     public class Board
     {
         private int quantity;
-        private int extension;
-        public int Width { get; set; }
+        public int Width { get; set; } //Længde og bredde er mm.
         public int Length { get; set; }
         public int WareId { get; set; }
         public int Quantity
@@ -20,19 +19,7 @@
             }
         }
         public Surfaces Surface { get; set; }
-        public int Extension
-        {
-            get { return extension; }
-            set
-            {
-                if (value >= 3)
-                    extension = 3;
-                else if (value == 1 || value <= 0)
-                    extension = 0;
-                else
-                    extension = value;
-            }
-        }
+        public bool Extension { get; set; }
 
         public Board(int wareId, IBoardRepository br)
         {
