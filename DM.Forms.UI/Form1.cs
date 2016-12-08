@@ -66,8 +66,11 @@ namespace DM.Forms.UI
                         {
                             extension = true;
                         }
-                        surface = (Surfaces)Enum.Parse(typeof(Surfaces), ddSurface.SelectedText);
-                        new Board(warenumber, length, width, surface, extension);
+                        surface = (Surfaces)Enum.Parse(typeof(Surfaces), ddSurface.SelectedValue.ToString());
+                        Board newboard = new Board(warenumber, length, width, surface, extension);
+                        newboard.Quantity = Convert.ToInt32(Count);
+                        MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
+
                     }
                     else
                     {
