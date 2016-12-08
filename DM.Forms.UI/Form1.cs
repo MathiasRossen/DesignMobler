@@ -21,6 +21,7 @@ namespace DM.Forms.UI
 
             ddExtension.Items.Insert(0, "Nej");
             ddExtension.Items.Insert(1, "Ja");
+            ddExtension.SelectedIndex = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
