@@ -53,7 +53,7 @@ namespace DM.Core
         public void EditBoard(Board board, IBoardRepository br)
         {
             Board boardToEdit = GetBoard(board.WareId);
-            boardToEdit = new Board(board.WareId, board.Length, board.Width, br);
+            boardToEdit = new Board(board.WareId, board.Length, board.Width, board.Surface, board.Extension, br);
         }
 
              

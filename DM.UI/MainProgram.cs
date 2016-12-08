@@ -106,7 +106,7 @@ namespace DM.UI
             if (board.Width == 0)
             {
                 board.Width = GetParsedInput("Bredde på plade: ");
-                board = new Board(board.WareId, board.Length, board.Width, br);
+                //board = new Board(board.WareId, board.Length, board.Width, br);
             }
             else
                 Console.WriteLine("Bredde på plade: " + board.Width);

@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.IntegrationTests", "DM.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.UI", "DM.UI\DM.UI.csproj", "{B51FBBBC-8665-498D-8AC8-DC734DF6778E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.Forms.UI", "..\..\..\Desktop\skole\Projekter\DesignMobler-master\DM.Forms.UI\DM.Forms.UI.csproj", "{02F695AE-C978-4C02-BE95-44D24FDF7318}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.Forms.UI", "DM.Forms.UI\DM.Forms.UI.csproj", "{02F695AE-C978-4C02-BE95-44D24FDF7318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

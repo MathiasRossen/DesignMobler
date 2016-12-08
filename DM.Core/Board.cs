@@ -27,6 +27,8 @@
             WareId = boardToLoad.WareId;
             Length = boardToLoad.Length;
             Width = boardToLoad.Width;
+            Extension = boardToLoad.Extension;
+            Surface = boardToLoad.Surface;
             Quantity = 1;
         }
 
@@ -37,14 +39,16 @@
             Quantity = 1;
         }
 
-        public Board(int wareId, int length, int width)
+        public Board(int wareId, int length, int width, Surfaces surface, bool extension)
             :this(length, width)
         {
             WareId = wareId;
+            Surface = surface;
+            Extension = extension;
         }
 
-        public Board(int wareId, int length, int width, IBoardRepository br)
-            :this(wareId, length, width)
+        public Board(int wareId, int length, int width, Surfaces surface, bool extension, IBoardRepository br)
+            :this(wareId, length, width, surface, extension)
         {
             br.SaveBoard(this);
         }

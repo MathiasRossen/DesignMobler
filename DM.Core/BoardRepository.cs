@@ -14,9 +14,9 @@ namespace DM.Core
         {
             boardList = new List<Board>();
 
-            SaveBoard(new Board(1000, 100, 100));
-            SaveBoard(new Board(1100, 200, 150));
-            SaveBoard(new Board(1200, 400, 300));
+            SaveBoard(new Board(1000, 100, 100, Surfaces.H1, true));
+            SaveBoard(new Board(1100, 200, 150, Surfaces.H1, true));
+            SaveBoard(new Board(1200, 400, 300, Surfaces.H1, true));
         }
 
         public Board LoadBoard(int wareId)
@@ -24,7 +24,7 @@ namespace DM.Core
             if (BoardExists(wareId))
                 return boardList.Find(x => x.WareId == wareId);
             else
-                return new Board(wareId, 0, 0);
+                return new Board(wareId, 0, 0, Surfaces.H1, true);
         }
 
         public Board LoadBoard(Board board)

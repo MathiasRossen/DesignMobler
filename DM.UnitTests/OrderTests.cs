@@ -139,7 +139,7 @@ namespace DM.UnitTests
 
             board.Width = 340;
             board.Length = 400;
-            board.Extension = 1;
+            board.Extension = false;
             br.SaveBoard(board);
 
             board = new Board(1400, br);
@@ -153,12 +153,14 @@ namespace DM.UnitTests
         public void RepoCanEditBoard()
         {
             IBoardRepository br = new BoardRepository();
-            Board board = new Board(1000, 350, 400, br);
+            Board board = new Board(1000, 350, 400, Surfaces.F2, false, br);
 
             board = br.LoadBoard(1000);
 
             Assert.AreEqual(350, board.Length);
             Assert.AreEqual(400, board.Width);
+            Assert.AreEqual(Surfaces.F2, board.Surface);
+            Assert.AreEqual(false, board.Extension);
         }
         
     }
