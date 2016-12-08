@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DM.Core;
-using System.Collections.Generic;
 
 namespace DM.UnitTests
 {
@@ -163,5 +162,34 @@ namespace DM.UnitTests
             Assert.AreEqual(false, board.Extension);
         }
         
+    }
+
+    [TestClass]
+    public class OutputTests
+    {
+        IBoardRepository br;
+        Order order;
+        PlateCalculator pc;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            br = new BoardRepository();
+            order = new Order();
+            pc = new PlateCalculator(order);
+        }
+
+        [TestMethod]
+        public void ConvertBoardToPlate()
+        {
+            order.AddBoard(new Board(1000, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(60, actualPlate.Length);
+            Assert.AreEqual(60, actualPlate.Width);
+            Assert.AreEqual(2, actualPlate.Quantity);
+            Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
+        }
     }
 }

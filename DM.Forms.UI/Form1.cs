@@ -51,7 +51,7 @@ namespace DM.Forms.UI
                 {
                     if (int.TryParse(txtWidth.Text, out width) || !string.IsNullOrWhiteSpace(txtWidth.Text))
                     {
-                        new Board(warenumber, length, width);
+                        //new Board(warenumber, length, width);
                     }
                     else
                     {
