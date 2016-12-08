@@ -44,7 +44,7 @@ namespace DM.Forms.UI
             int length;
             int width;
 
-            // hejsa
+            // y test
             if (int.TryParse(txtWareNumber.Text, out warenumber) || !string.IsNullOrWhiteSpace(txtWareNumber.Text))
             {
                 if (int.TryParse(txtLength.Text, out length) || !string.IsNullOrWhiteSpace(txtLength.Text))
