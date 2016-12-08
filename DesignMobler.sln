@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.UI", "DM.UI\DM.UI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.Forms.UI", "..\..\..\Desktop\skole\Projekter\DesignMobler-master\DM.Forms.UI\DM.Forms.UI.csproj", "{02F695AE-C978-4C02-BE95-44D24FDF7318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yalla", "yalla\yalla.csproj", "{77D601C3-35BA-4460-BD22-5F1E105858BE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +35,6 @@ Global
 		{02F695AE-C978-4C02-BE95-44D24FDF7318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F695AE-C978-4C02-BE95-44D24FDF7318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F695AE-C978-4C02-BE95-44D24FDF7318}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77D601C3-35BA-4460-BD22-5F1E105858BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77D601C3-35BA-4460-BD22-5F1E105858BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77D601C3-35BA-4460-BD22-5F1E105858BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77D601C3-35BA-4460-BD22-5F1E105858BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
