@@ -8,7 +8,6 @@ namespace DM.Core
 {
     public class BoardRepository : IBoardRepository
     {
-        // Hehsa
         private List<Board> boardList;
 
         public BoardRepository()
