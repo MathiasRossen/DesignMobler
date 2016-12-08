@@ -29,7 +29,7 @@ namespace DM.Core
 
         public Board LoadBoard(Board board)
         {
-            return boardList.Find(x => x.WareId == board.WareId);
+            return LoadBoard(board.WareId);
         }
 
         public void SaveBoard(Board board)
@@ -38,6 +38,8 @@ namespace DM.Core
             {
                 FindBoard(board).Length = board.Length;
                 FindBoard(board).Width = board.Width;
+                FindBoard(board).Surface = board.Surface;
+                FindBoard(board).Extension = board.Extension;
             }
             else
                 boardList.Add(board);

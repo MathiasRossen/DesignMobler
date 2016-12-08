@@ -161,7 +161,7 @@ namespace DM.UnitTests
             Assert.AreEqual(Surfaces.F2, board.Surface);
             Assert.AreEqual(false, board.Extension);
         }
-        
+
     }
 
     [TestClass]
