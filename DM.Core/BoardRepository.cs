@@ -17,6 +17,7 @@ namespace DM.Core
             SaveBoard(new Board(1000, 100, 100, Surfaces.H1, true));
             SaveBoard(new Board(1100, 200, 150, Surfaces.H1, true));
             SaveBoard(new Board(1200, 400, 300, Surfaces.H1, true));
+            SaveBoard(new Board(1300, 50, 50, Surfaces.H1, false));
         }
 
         public Board LoadBoard(int wareId)

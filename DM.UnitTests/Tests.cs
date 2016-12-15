@@ -191,5 +191,40 @@ namespace DM.UnitTests
             Assert.AreEqual(2, actualPlate.Quantity);
             Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
         }
+
+        [TestMethod]
+        public void ConvertTwoDifferentBoardsToPlates()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1100, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate(1);
+
+            Assert.AreEqual(110, actualPlate.Width);
+            Assert.AreEqual(85, actualPlate.Length);
+            Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
+        }
+
+        [TestMethod]
+        public void ConvertTwoOfTheSameBoardsToPlates()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1000, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(4, actualPlate.Quantity);
+        }
+
+        [TestMethod]
+        public void ConvertTwoDifferentBoardsWithSamePlateOutput()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1300, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(3, actualPlate.Quantity);
+        }
     }
 }
