@@ -199,7 +199,7 @@ namespace DM.UnitTests
             Plate actualPlate = pc.GetPlate();
 
             Assert.AreEqual(60, actualPlate.Length);
-            Assert.AreEqual(60, actualPlate.Width);
+            Assert.AreEqual(110, actualPlate.Width);
             Assert.AreEqual(2, actualPlate.Quantity);
             Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
         }
@@ -212,8 +212,8 @@ namespace DM.UnitTests
             pc.CalculateBoards();
             Plate actualPlate = pc.GetPlate(1);
 
-            Assert.AreEqual(110, actualPlate.Width);
-            Assert.AreEqual(85, actualPlate.Length);
+            Assert.AreEqual(160, actualPlate.Width);
+            Assert.AreEqual(110, actualPlate.Length);
             Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
         }
 
@@ -244,9 +244,12 @@ namespace DM.UnitTests
         {
             order.AddBoard(new Board(1000, br));
             order.AddBoard(new Board(1100, br));
+            order.AddBoard(new Board(1200, br));
+            order.AddBoard(new Board(1300, br));
+            order.AddBoard(new Board(1400, br));
             pc.CalculateBoards();
 
-            ExcelCreator ec = new ExcelCreator(pc.Plates);
+            ExcelCreator ec = new ExcelCreator(pc.Plates, @"C:\Users\Mathias\Documents\PathToExcel");
             ec.CreateExcel();
         }
     }

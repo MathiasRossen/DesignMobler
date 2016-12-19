@@ -29,29 +29,21 @@ namespace DM.Core
             {
                 Board board = boardList[i];
 
-                int width = 0;
-                int length = 0;
+                int width = board.Width;
+                int length = board.Length;
                 int quantity = board.Quantity;
-                Surfaces surface = Surfaces.H1;
+                Surfaces surface = board.Surface;
 
                 if (board.Extension)
                 {
-                    width = board.Width;
                     length = board.Length / 2;
-                    surface = board.Surface;
                     quantity *= 2;
-                }
-                else
-                {
-                    width = board.Width;
-                    length = board.Length;
-                    surface = board.Surface;
                 }
 
                 length += 10;
                 width += 10;
 
-                Plate plate = new Plate(width, length, surface);
+                Plate plate = new Plate(length, width, surface);
                 plate.Quantity = quantity;
                 AddPlate(plate);
             }

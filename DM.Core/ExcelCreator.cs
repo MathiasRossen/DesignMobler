@@ -4,36 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace DM.Core
 {
     public class ExcelCreator
     {
-        private List<Plate> plateList;
-        public ExcelCreator(List<Plate> plateList)
+        List<Plate> plateList;
+        string path;
+
+        public ExcelCreator(List<Plate> plateList, string path)
         {
             this.plateList = plateList;
+            this.path = path;
+            Directory.CreateDirectory(path);
         }
 
         public void CreateExcel()
         {
+            DateTime date = DateTime.Now;
+            string currentCellValue;
+            int currentColumn = 2;
+
             Application excelApplication = new Application();
-            Workbook workBook = excelApplication.Workbooks.Add();
+            Workbook workBook = excelApplication.Workbooks.Add(path + "/Template.xlsx");
             Worksheet workSheet = workBook.Sheets[1];
 
-
-            int column = 1;
             foreach(Plate plate in plateList)
             {
-                workSheet.Cells[1, column] = plate.Width + "x" + plate.Length;
+                currentCellValue = plate.Width + "x" + plate.Length;
+                currentColumn = FindNextColumn(currentCellValue, workSheet);
 
-                column++;
+                workSheet.Cells[1, currentColumn] = currentCellValue;
+                workSheet.Cells[plate.Surface + 2, currentColumn] = plate.Quantity;
             }
 
-            workSheet.Cells[2, 2] = "Søren (faggot)";
+            workBook.SaveAs(path + "/" + date.Day + "-" + date.Month + "-" + date.Year);
+            excelApplication.Visible = true;
+            //workBook.Close();
+        }
 
-            workBook.Save();
-            workBook.Close();
+        private int FindNextColumn(string cellValueToFind, Worksheet workSheet)
+        {
+            string cellValue;
+
+            for(int i = 2; i < plateList.Count + 2; i++)
+            {
+                cellValue = (workSheet.Cells[1, i] as Range).Text;
+
+                if (cellValue == "")
+                    return i;
+                else if (cellValue == cellValueToFind)
+                    return i;
+            }
+
+            return 2;
         }
     }
 }
