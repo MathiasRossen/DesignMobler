@@ -47,10 +47,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(69, 0);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(39, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(808, 426);
+            this.tabControl1.Size = new System.Drawing.Size(880, 533);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -66,7 +67,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(800, 400);
+            this.tabPage1.Size = new System.Drawing.Size(872, 507);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Enter Order";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -74,7 +75,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(708, 74);
+            this.btnAdd.Location = new System.Drawing.Point(733, 44);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 7;
@@ -85,7 +86,7 @@
             // ddSurface
             // 
             this.ddSurface.FormattingEnabled = true;
-            this.ddSurface.Location = new System.Drawing.Point(539, 32);
+            this.ddSurface.Location = new System.Drawing.Point(500, 45);
             this.ddSurface.Name = "ddSurface";
             this.ddSurface.Size = new System.Drawing.Size(121, 21);
             this.ddSurface.TabIndex = 6;
@@ -94,7 +95,7 @@
             // ddExtension
             // 
             this.ddExtension.FormattingEnabled = true;
-            this.ddExtension.Location = new System.Drawing.Point(401, 33);
+            this.ddExtension.Location = new System.Drawing.Point(368, 45);
             this.ddExtension.Name = "ddExtension";
             this.ddExtension.Size = new System.Drawing.Size(121, 21);
             this.ddExtension.TabIndex = 5;
@@ -102,21 +103,21 @@
             // 
             // Count
             // 
-            this.Count.Location = new System.Drawing.Point(678, 33);
+            this.Count.Location = new System.Drawing.Point(700, 46);
             this.Count.Name = "Count";
-            this.Count.Size = new System.Drawing.Size(47, 20);
+            this.Count.Size = new System.Drawing.Size(27, 20);
             this.Count.TabIndex = 4;
             // 
             // txtWidth
             // 
-            this.txtWidth.Location = new System.Drawing.Point(275, 34);
+            this.txtWidth.Location = new System.Drawing.Point(257, 45);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(100, 20);
             this.txtWidth.TabIndex = 3;
             // 
             // txtLength
             // 
-            this.txtLength.Location = new System.Drawing.Point(158, 34);
+            this.txtLength.Location = new System.Drawing.Point(146, 45);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(100, 20);
             this.txtLength.TabIndex = 2;
@@ -124,7 +125,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 18);
+            this.label1.Location = new System.Drawing.Point(32, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
@@ -132,7 +133,7 @@
             // 
             // txtWareNumber
             // 
-            this.txtWareNumber.Location = new System.Drawing.Point(35, 34);
+            this.txtWareNumber.Location = new System.Drawing.Point(35, 45);
             this.txtWareNumber.Name = "txtWareNumber";
             this.txtWareNumber.Size = new System.Drawing.Size(100, 20);
             this.txtWareNumber.TabIndex = 0;
@@ -143,7 +144,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(800, 400);
+            this.tabPage2.Size = new System.Drawing.Size(872, 507);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Order List";
             this.tabPage2.UseVisualStyleBackColor = true;
