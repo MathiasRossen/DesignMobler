@@ -17,6 +17,7 @@ namespace DM.Core
             SaveBoard(new Board(1000, 100, 100, Surfaces.H1, true));
             SaveBoard(new Board(1100, 200, 150, Surfaces.H1, true));
             SaveBoard(new Board(1200, 400, 300, Surfaces.H1, true));
+            SaveBoard(new Board(1300, 50, 50, Surfaces.H1, false));
         }
 
         public Board LoadBoard(int wareId)
@@ -29,7 +30,7 @@ namespace DM.Core
 
         public Board LoadBoard(Board board)
         {
-            return boardList.Find(x => x.WareId == board.WareId);
+            return LoadBoard(board.WareId);
         }
 
         public void SaveBoard(Board board)
@@ -38,6 +39,8 @@ namespace DM.Core
             {
                 FindBoard(board).Length = board.Length;
                 FindBoard(board).Width = board.Width;
+                FindBoard(board).Surface = board.Surface;
+                FindBoard(board).Extension = board.Extension;
             }
             else
                 boardList.Add(board);

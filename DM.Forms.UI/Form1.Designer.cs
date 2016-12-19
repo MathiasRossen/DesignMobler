@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -39,8 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtWareNumber = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.boardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -85,11 +88,15 @@
             // 
             // ddSurface
             // 
+            this.ddSurface.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.boardBindingSource, "Surface", true));
+            this.ddSurface.DataSource = this.boardBindingSource;
+            this.ddSurface.DisplayMember = "Surface";
             this.ddSurface.FormattingEnabled = true;
             this.ddSurface.Location = new System.Drawing.Point(500, 45);
             this.ddSurface.Name = "ddSurface";
             this.ddSurface.Size = new System.Drawing.Size(121, 21);
             this.ddSurface.TabIndex = 6;
+            this.ddSurface.ValueMember = "Surface";
             this.ddSurface.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // ddExtension
@@ -149,6 +156,10 @@
             this.tabPage2.Text = "Order List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // boardBindingSource
+            // 
+            this.boardBindingSource.DataSource = typeof(DM.Core.Board);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +171,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,6 +189,7 @@
         private System.Windows.Forms.ComboBox ddSurface;
         private System.Windows.Forms.ComboBox ddExtension;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.BindingSource boardBindingSource;
     }
 }
 

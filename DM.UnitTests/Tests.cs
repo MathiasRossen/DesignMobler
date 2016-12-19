@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DM.Core;
-using System.Collections.Generic;
 
 namespace DM.UnitTests
 {
@@ -162,6 +161,93 @@ namespace DM.UnitTests
             Assert.AreEqual(Surfaces.F2, board.Surface);
             Assert.AreEqual(false, board.Extension);
         }
-        
+
+        [TestMethod]
+        public void SaveBoardToFile()
+        {
+            IBoardRepository br = new BoardRepositoryFile(@"C:\VareNumre");
+            Board board = new Board(1000, 100, 100, Surfaces.H1, true, br);
+
+            Board actualBoard = br.LoadBoard(1000);
+
+            Assert.AreEqual(100, actualBoard.Width);
+            Assert.AreEqual(Surfaces.H1, actualBoard.Surface);
+        }
+
+    }
+
+    [TestClass]
+    public class OutputTests
+    {
+        IBoardRepository br;
+        Order order;
+        PlateCalculator pc;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            br = new BoardRepository();
+            order = new Order();
+            pc = new PlateCalculator(order);
+        }
+
+        [TestMethod]
+        public void ConvertBoardToPlate()
+        {
+            order.AddBoard(new Board(1000, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(60, actualPlate.Length);
+            Assert.AreEqual(60, actualPlate.Width);
+            Assert.AreEqual(2, actualPlate.Quantity);
+            Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
+        }
+
+        [TestMethod]
+        public void ConvertTwoDifferentBoardsToPlates()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1100, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate(1);
+
+            Assert.AreEqual(110, actualPlate.Width);
+            Assert.AreEqual(85, actualPlate.Length);
+            Assert.AreEqual(Surfaces.H1, actualPlate.Surface);
+        }
+
+        [TestMethod]
+        public void ConvertTwoOfTheSameBoardsToPlates()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1000, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(4, actualPlate.Quantity);
+        }
+
+        [TestMethod]
+        public void ConvertTwoDifferentBoardsWithSamePlateOutput()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1300, br));
+            pc.CalculateBoards();
+            Plate actualPlate = pc.GetPlate();
+
+            Assert.AreEqual(3, actualPlate.Quantity);
+        }
+
+        [TestMethod]
+        public void ExcelThing()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1100, br));
+            pc.CalculateBoards();
+
+            ExcelCreator ec = new ExcelCreator(pc.Plates);
+            ec.CreateExcel();
+        }
     }
 }

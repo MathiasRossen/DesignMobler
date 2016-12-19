@@ -16,6 +16,12 @@ namespace DM.Forms.UI
         public Form1()
         {
             InitializeComponent();
+
+            ddSurface.DataSource = Enum.GetValues(typeof(Surfaces));
+
+            ddExtension.Items.Insert(0, "Nej");
+            ddExtension.Items.Insert(1, "Ja");
+            ddExtension.SelectedIndex = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -43,15 +49,28 @@ namespace DM.Forms.UI
             int warenumber;
             int length;
             int width;
+            bool extension;
+            Surfaces surface;
 
-            // y test
             if (int.TryParse(txtWareNumber.Text, out warenumber) || !string.IsNullOrWhiteSpace(txtWareNumber.Text))
             {
                 if (int.TryParse(txtLength.Text, out length) || !string.IsNullOrWhiteSpace(txtLength.Text))
                 {
                     if (int.TryParse(txtWidth.Text, out width) || !string.IsNullOrWhiteSpace(txtWidth.Text))
-                    {
-                        new Board(warenumber, length, width);
+                    {                   
+                        if(Convert.ToInt32(ddExtension.SelectedValue) == 0)
+                        {
+                            extension = false;
+                        }
+                        else
+                        {
+                            extension = true;
+                        }
+                        surface = (Surfaces)Enum.Parse(typeof(Surfaces), ddSurface.SelectedValue.ToString());
+                        Board newboard = new Board(warenumber, length, width, surface, extension);
+                        newboard.Quantity = Convert.ToInt32(Count);
+                        MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
+
                     }
                     else
                     {
