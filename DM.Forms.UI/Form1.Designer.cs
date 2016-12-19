@@ -1,4 +1,6 @@
-﻿namespace DM.Forms.UI
+﻿using System.Reflection.Emit;
+
+namespace DM.Forms.UI
 {
     partial class Form1
     {
@@ -33,6 +35,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAdd = new System.Windows.Forms.Button();
             this.ddSurface = new System.Windows.Forms.ComboBox();
+            this.boardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ddExtension = new System.Windows.Forms.ComboBox();
             this.Count = new System.Windows.Forms.TextBox();
             this.txtWidth = new System.Windows.Forms.TextBox();
@@ -40,10 +43,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtWareNumber = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.boardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -98,6 +103,10 @@
             this.ddSurface.ValueMember = "Surface";
             this.ddSurface.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
+            // boardBindingSource
+            // 
+            this.boardBindingSource.DataSource = typeof(DM.Core.Board);
+            // 
             // ddExtension
             // 
             this.ddExtension.FormattingEnabled = true;
@@ -147,6 +156,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -154,10 +165,32 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Order List";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // boardBindingSource
+            // tableLayoutPanel1
             // 
-            this.boardBindingSource.DataSource = typeof(DM.Core.Board);
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.69951F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.30049F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.837564F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.16244F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 356);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(276, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -171,6 +204,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,6 +223,8 @@
         private System.Windows.Forms.ComboBox ddExtension;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.BindingSource boardBindingSource;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
