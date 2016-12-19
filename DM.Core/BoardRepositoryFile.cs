@@ -21,13 +21,20 @@ namespace DM.Core
         {
             Board boardToLoad = new Board(wareId, 0, 0, Surfaces.H1, true);
 
-            using (StreamReader file = new StreamReader(path + "/" + wareId + ".txt"))
+            try
             {
-                boardToLoad.WareId = int.Parse(file.ReadLine());
-                boardToLoad.Width = int.Parse(file.ReadLine());
-                boardToLoad.Length = int.Parse(file.ReadLine());
-                boardToLoad.Extension = bool.Parse(file.ReadLine());
-                boardToLoad.Surface = (Surfaces)int.Parse(file.ReadLine());
+                using (StreamReader file = new StreamReader(path + "/" + wareId + ".txt"))
+                {
+                    boardToLoad.WareId = int.Parse(file.ReadLine());
+                    boardToLoad.Width = int.Parse(file.ReadLine());
+                    boardToLoad.Length = int.Parse(file.ReadLine());
+                    boardToLoad.Extension = bool.Parse(file.ReadLine());
+                    boardToLoad.Surface = (Surfaces)int.Parse(file.ReadLine());
+                }
+            }
+            catch (Exception)
+            {
+
             }
 
             return boardToLoad;
