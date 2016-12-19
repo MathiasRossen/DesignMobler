@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Excel;
 
 namespace DM.Core
 {
@@ -10,6 +11,11 @@ namespace DM.Core
     {
         List<Board> boardList;
         List<Plate> plateList;
+
+        public List<Plate> Plates
+        {
+            get { return plateList; }
+        }
 
         public PlateCalculator(Order order)
         {
@@ -30,7 +36,7 @@ namespace DM.Core
 
                 if (board.Extension)
                 {
-                    width = board.Width / 2;
+                    width = board.Width;
                     length = board.Length / 2;
                     surface = board.Surface;
                     quantity *= 2;

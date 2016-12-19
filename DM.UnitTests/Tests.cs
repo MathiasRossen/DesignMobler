@@ -162,6 +162,18 @@ namespace DM.UnitTests
             Assert.AreEqual(false, board.Extension);
         }
 
+        [TestMethod]
+        public void SaveBoardToFile()
+        {
+            IBoardRepository br = new BoardRepositoryFile(@"C:\VareNumre");
+            Board board = new Board(1000, 100, 100, Surfaces.H1, true, br);
+
+            Board actualBoard = br.LoadBoard(1000);
+
+            Assert.AreEqual(100, actualBoard.Width);
+            Assert.AreEqual(Surfaces.H1, actualBoard.Surface);
+        }
+
     }
 
     [TestClass]
@@ -225,6 +237,17 @@ namespace DM.UnitTests
             Plate actualPlate = pc.GetPlate();
 
             Assert.AreEqual(3, actualPlate.Quantity);
+        }
+
+        [TestMethod]
+        public void ExcelThing()
+        {
+            order.AddBoard(new Board(1000, br));
+            order.AddBoard(new Board(1100, br));
+            pc.CalculateBoards();
+
+            ExcelCreator ec = new ExcelCreator(pc.Plates);
+            ec.CreateExcel();
         }
     }
 }
