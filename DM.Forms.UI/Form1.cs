@@ -22,7 +22,7 @@ namespace DM.Forms.UI
             InitializeComponent();
 
             order = new Order();
-            br = new BoardRepositoryFile(@"C:\Users\casp4\Desktop\skole\Projekter\DesignMobler-master\varenr");
+            br = new BoardRepositoryFile("varenr");
 
             ddSurface.DataSource = Enum.GetValues(typeof(Surfaces));
 
