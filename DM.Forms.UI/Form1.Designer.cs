@@ -61,10 +61,10 @@ namespace DM.Forms.UI
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(-3, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1265, 704);
+            this.tabControl1.Size = new System.Drawing.Size(1200, 704);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -86,7 +86,7 @@ namespace DM.Forms.UI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1257, 678);
+            this.tabPage1.Size = new System.Drawing.Size(1192, 678);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Indtast Ordre";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace DM.Forms.UI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1027, 29);
+            this.label6.Location = new System.Drawing.Point(1027, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 12;
@@ -105,7 +105,7 @@ namespace DM.Forms.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(569, 29);
+            this.label5.Location = new System.Drawing.Point(569, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 11;
@@ -114,7 +114,7 @@ namespace DM.Forms.UI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(419, 29);
+            this.label4.Location = new System.Drawing.Point(419, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 10;
@@ -123,7 +123,7 @@ namespace DM.Forms.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(290, 29);
+            this.label3.Location = new System.Drawing.Point(290, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 9;
@@ -132,7 +132,7 @@ namespace DM.Forms.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 29);
+            this.label2.Location = new System.Drawing.Point(161, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 8;
@@ -140,11 +140,11 @@ namespace DM.Forms.UI
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1063, 43);
+            this.btnAdd.Location = new System.Drawing.Point(1063, 53);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(106, 23);
             this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Tilføj Vare";
+            this.btnAdd.Text = "Tilføj Vare Nummer";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -154,7 +154,7 @@ namespace DM.Forms.UI
             this.ddSurface.DataSource = this.boardBindingSource;
             this.ddSurface.DisplayMember = "Surface";
             this.ddSurface.FormattingEnabled = true;
-            this.ddSurface.Location = new System.Drawing.Point(572, 44);
+            this.ddSurface.Location = new System.Drawing.Point(572, 54);
             this.ddSurface.Name = "ddSurface";
             this.ddSurface.Size = new System.Drawing.Size(134, 21);
             this.ddSurface.TabIndex = 6;
@@ -168,7 +168,7 @@ namespace DM.Forms.UI
             // ddExtension
             // 
             this.ddExtension.FormattingEnabled = true;
-            this.ddExtension.Location = new System.Drawing.Point(422, 44);
+            this.ddExtension.Location = new System.Drawing.Point(422, 54);
             this.ddExtension.Name = "ddExtension";
             this.ddExtension.Size = new System.Drawing.Size(134, 21);
             this.ddExtension.TabIndex = 5;
@@ -176,21 +176,21 @@ namespace DM.Forms.UI
             // 
             // Count
             // 
-            this.Count.Location = new System.Drawing.Point(1030, 45);
+            this.Count.Location = new System.Drawing.Point(1030, 55);
             this.Count.Name = "Count";
             this.Count.Size = new System.Drawing.Size(27, 20);
             this.Count.TabIndex = 4;
             // 
             // txtWidth
             // 
-            this.txtWidth.Location = new System.Drawing.Point(293, 45);
+            this.txtWidth.Location = new System.Drawing.Point(293, 55);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(113, 20);
             this.txtWidth.TabIndex = 3;
             // 
             // txtLength
             // 
-            this.txtLength.Location = new System.Drawing.Point(164, 45);
+            this.txtLength.Location = new System.Drawing.Point(164, 55);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(113, 20);
             this.txtLength.TabIndex = 2;
@@ -198,7 +198,7 @@ namespace DM.Forms.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 29);
+            this.label1.Location = new System.Drawing.Point(32, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 1;
@@ -206,7 +206,7 @@ namespace DM.Forms.UI
             // 
             // txtWareNumber
             // 
-            this.txtWareNumber.Location = new System.Drawing.Point(35, 45);
+            this.txtWareNumber.Location = new System.Drawing.Point(35, 55);
             this.txtWareNumber.Name = "txtWareNumber";
             this.txtWareNumber.Size = new System.Drawing.Size(113, 20);
             this.txtWareNumber.TabIndex = 0;
@@ -219,7 +219,7 @@ namespace DM.Forms.UI
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1257, 678);
+            this.tabPage2.Size = new System.Drawing.Size(1192, 678);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ordre Liste";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@ namespace DM.Forms.UI
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.837564F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.16244F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1230, 619);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1161, 619);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -256,7 +256,7 @@ namespace DM.Forms.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 701);
+            this.ClientSize = new System.Drawing.Size(1194, 701);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Table Order System";
