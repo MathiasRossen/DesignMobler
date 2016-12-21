@@ -48,18 +48,18 @@ namespace DM.Forms.UI
         private void DisplayBoardInfo(Board board)
         {
             string extension;
+            if (board.Extension)
+                extension = "Ja";
+            else
+                extension = "Nej";
 
             tableLayoutPanel1.RowCount += 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.WareId.ToString() }, 0, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Length.ToString() }, 1, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Width.ToString() }, 2, tableLayoutPanel1.RowCount-1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = extension }, 3, tableLayoutPanel1.RowCount - 1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Surface.ToString() }, 4, tableLayoutPanel1.RowCount-1);
-            if (board.Extension)
-                extension = "Ja";
-            else
-                extension = "Nej";
-            tableLayoutPanel1.Controls.Add(new Label() { Text = extension }, 3, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 5, tableLayoutPanel1.RowCount-1);
         }
 
