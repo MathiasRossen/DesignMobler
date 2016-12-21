@@ -247,7 +247,7 @@ namespace DM.Forms.UI
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(287, 30);
+            this.label13.Location = new System.Drawing.Point(289, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(71, 13);
             this.label13.TabIndex = 10;
@@ -255,7 +255,7 @@ namespace DM.Forms.UI
             // 
             // btnDeleteOrder
             // 
-            this.btnDeleteOrder.Location = new System.Drawing.Point(396, 44);
+            this.btnDeleteOrder.Location = new System.Drawing.Point(398, 44);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
             this.btnDeleteOrder.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteOrder.TabIndex = 9;
@@ -265,7 +265,7 @@ namespace DM.Forms.UI
             // 
             // txtDeleteWareNumber
             // 
-            this.txtDeleteWareNumber.Location = new System.Drawing.Point(290, 46);
+            this.txtDeleteWareNumber.Location = new System.Drawing.Point(292, 46);
             this.txtDeleteWareNumber.Name = "txtDeleteWareNumber";
             this.txtDeleteWareNumber.Size = new System.Drawing.Size(100, 20);
             this.txtDeleteWareNumber.TabIndex = 8;
