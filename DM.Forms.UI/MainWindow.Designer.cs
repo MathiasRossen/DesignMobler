@@ -247,7 +247,7 @@ namespace DM.Forms.UI
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(330, 10);
+            this.label13.Location = new System.Drawing.Point(287, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(71, 13);
             this.label13.TabIndex = 10;
@@ -255,7 +255,7 @@ namespace DM.Forms.UI
             // 
             // btnDeleteOrder
             // 
-            this.btnDeleteOrder.Location = new System.Drawing.Point(439, 24);
+            this.btnDeleteOrder.Location = new System.Drawing.Point(396, 44);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
             this.btnDeleteOrder.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteOrder.TabIndex = 9;
@@ -265,7 +265,7 @@ namespace DM.Forms.UI
             // 
             // txtDeleteWareNumber
             // 
-            this.txtDeleteWareNumber.Location = new System.Drawing.Point(333, 26);
+            this.txtDeleteWareNumber.Location = new System.Drawing.Point(290, 46);
             this.txtDeleteWareNumber.Name = "txtDeleteWareNumber";
             this.txtDeleteWareNumber.Size = new System.Drawing.Size(100, 20);
             this.txtDeleteWareNumber.TabIndex = 8;
@@ -274,7 +274,7 @@ namespace DM.Forms.UI
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(787, 102);
+            this.label12.Location = new System.Drawing.Point(753, 102);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 7;
@@ -283,7 +283,7 @@ namespace DM.Forms.UI
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(611, 102);
+            this.label11.Location = new System.Drawing.Point(577, 102);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 6;
@@ -292,7 +292,7 @@ namespace DM.Forms.UI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(972, 102);
+            this.label10.Location = new System.Drawing.Point(938, 102);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 5;
@@ -302,7 +302,7 @@ namespace DM.Forms.UI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(244, 102);
+            this.label9.Location = new System.Drawing.Point(210, 102);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 13);
             this.label9.TabIndex = 4;
@@ -312,7 +312,7 @@ namespace DM.Forms.UI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(432, 102);
+            this.label8.Location = new System.Drawing.Point(398, 102);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 3;
@@ -321,7 +321,7 @@ namespace DM.Forms.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(66, 102);
+            this.label7.Location = new System.Drawing.Point(32, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 2;
@@ -330,7 +330,7 @@ namespace DM.Forms.UI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(69, 24);
+            this.button1.Location = new System.Drawing.Point(34, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 23);
             this.button1.TabIndex = 1;
@@ -348,7 +348,7 @@ namespace DM.Forms.UI
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(69, 116);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 116);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
