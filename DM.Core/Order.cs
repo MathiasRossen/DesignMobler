@@ -63,7 +63,10 @@ namespace DM.Core
             if (boards.Exists(x => x.WareId == board.WareId))
             {
                 int index = boards.FindIndex(x => x.WareId == board.WareId);
-                boards[index] = board;
+                boards[index].Length = board.Length;
+                boards[index].Width = board.Width;
+                boards[index].Surface = board.Surface;
+                boards[index].Extension = board.Extension;
                 br.SaveBoard(board);
             }
         }

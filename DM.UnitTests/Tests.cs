@@ -72,9 +72,9 @@ namespace DM.UnitTests
         [TestMethod]
         public void OrderAddsAndUpdatesBoard()
         {
-            Board newBoard = new Board(2000, 150, 500, Surfaces.H1, true);
+            Board newBoard = new Board(2000, 150, 500, Surfaces.H1, true, br);
             newBoard.Quantity = 2;
-            Board anotherBoard = new Board(2000, 300, 400, Surfaces.H1, true);
+            Board anotherBoard = new Board(2000, 300, 400, Surfaces.H1, true, br);
             anotherBoard.Quantity = 2;
             Board thirdBoard = new Board(2000, br);
             thirdBoard.Quantity = 2;
@@ -86,8 +86,8 @@ namespace DM.UnitTests
             Board actualBoard = order.GetBoard();
             Board boardFromRepo = br.LoadBoard(2000);
 
-            //Assert.AreEqual(300, actualBoard.Length);
-            //Assert.AreEqual(400, actualBoard.Width);
+            Assert.AreEqual(300, actualBoard.Length);
+            Assert.AreEqual(400, actualBoard.Width);
             Assert.AreEqual(6, actualBoard.Quantity);
 
             Assert.AreEqual(300, boardFromRepo.Length);
