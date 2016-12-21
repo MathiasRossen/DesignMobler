@@ -183,6 +183,12 @@ namespace DM.Forms.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            PlateCalculator calc = new PlateCalculator(order);
+            calc.CalculateBoards();
+            ExcelCreator excel = new ExcelCreator(calc.Plates, @"C:\Users\casp4\Documents");
+            excel.CreateExcel();
+
+
 
         }
 
