@@ -30,12 +30,6 @@ namespace DM.Forms.UI
             ddExtension.Items.Insert(1, "Nej");
             ddExtension.SelectedIndex = 0;
 
-
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "VareNr" }, 0, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Længde" }, 1, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Bredde" }, 2, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Antal" }, 3, 0);
-
             LoadBoard();
         }
 
@@ -53,12 +47,20 @@ namespace DM.Forms.UI
 
         private void DisplayBoardInfo(Board board)
         {
+            string extension;
+
             tableLayoutPanel1.RowCount += 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.WareId.ToString() }, 0, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Length.ToString() }, 1, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Width.ToString() }, 2, tableLayoutPanel1.RowCount-1);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 3, tableLayoutPanel1.RowCount-1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Surface.ToString() }, 4, tableLayoutPanel1.RowCount-1);
+            if (board.Extension)
+                extension = "Ja";
+            else
+                extension = "Nej";
+            tableLayoutPanel1.Controls.Add(new Label() { Text = extension }, 3, tableLayoutPanel1.RowCount-1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 5, tableLayoutPanel1.RowCount-1);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -184,6 +186,26 @@ namespace DM.Forms.UI
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
