@@ -56,6 +56,9 @@ namespace DM.Forms.UI
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDeleteWareNumber = new System.Windows.Forms.TextBox();
+            this.btnDeleteOrder = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).BeginInit();
@@ -221,6 +224,9 @@ namespace DM.Forms.UI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.btnDeleteOrder);
+            this.tabPage2.Controls.Add(this.txtDeleteWareNumber);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
@@ -323,6 +329,33 @@ namespace DM.Forms.UI
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 485);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // txtDeleteWareNumber
+            // 
+            this.txtDeleteWareNumber.Location = new System.Drawing.Point(528, 26);
+            this.txtDeleteWareNumber.Name = "txtDeleteWareNumber";
+            this.txtDeleteWareNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtDeleteWareNumber.TabIndex = 8;
+            this.txtDeleteWareNumber.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // btnDeleteOrder
+            // 
+            this.btnDeleteOrder.Location = new System.Drawing.Point(634, 26);
+            this.btnDeleteOrder.Name = "btnDeleteOrder";
+            this.btnDeleteOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteOrder.TabIndex = 9;
+            this.btnDeleteOrder.Text = "Slet order";
+            this.btnDeleteOrder.UseVisualStyleBackColor = true;
+            this.btnDeleteOrder.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(557, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Vare nr";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +402,9 @@ namespace DM.Forms.UI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtDeleteWareNumber;
+        private System.Windows.Forms.Button btnDeleteOrder;
+        private System.Windows.Forms.Label label13;
     }
 }
 
