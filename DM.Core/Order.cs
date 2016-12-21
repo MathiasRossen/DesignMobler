@@ -29,9 +29,9 @@ namespace DM.Core
             boards.Find(x => x.WareId == wareId).Quantity = newQuantity;
         }
 
-        public void RemoveBoard(int index)
+        public void RemoveBoard(int wareId)
         {
-            boards.RemoveAt(index);
+            boards.RemoveAll(x => x.WareId == wareId);
         }
 
         public void RemoveBoard(Board board)
