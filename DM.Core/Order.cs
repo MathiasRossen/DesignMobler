@@ -16,6 +16,12 @@ namespace DM.Core
                 boards.Find(x => x.WareId == board.WareId).Quantity += board.Quantity;
         }
 
+        public void AddBoard(Board board, IBoardRepository br)
+        {
+            EditBoard(board, br);
+            AddBoard(board);
+        }
+
         public void EditQuantity(int wareId, int newQuantity)
         {
             boards.Find(x => x.WareId == wareId).Quantity = newQuantity;

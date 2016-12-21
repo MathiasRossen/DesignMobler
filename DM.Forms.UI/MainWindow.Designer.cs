@@ -47,8 +47,8 @@ namespace DM.Forms.UI
             this.txtLength = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWareNumber = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,6 +128,7 @@ namespace DM.Forms.UI
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Højde";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -212,16 +213,6 @@ namespace DM.Forms.UI
             this.txtWareNumber.TabIndex = 0;
             this.txtWareNumber.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Udskriv Listen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
@@ -235,6 +226,16 @@ namespace DM.Forms.UI
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Udskriv Listen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoScroll = true;
@@ -242,7 +243,7 @@ namespace DM.Forms.UI
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(32, 125);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";

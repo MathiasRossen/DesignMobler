@@ -6,10 +6,19 @@ namespace DM.UnitTests
     [TestClass]
     public class OrderTests
     {
+        Order order;
+        IBoardRepository br;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            order = new Order();
+            br = new BoardRepository();
+        }
+
         [TestMethod]
         public void CanCreateEmptyOrder()
         {
-            Order order = new Order();
             Order expected = new Order();
 
             Assert.IsTrue(order.Equals(expected));
@@ -19,7 +28,6 @@ namespace DM.UnitTests
         public void CanAddBoardsToOrder()
         {
             Board board = new Board(100, 100);
-            Order order = new Order();
             order.AddBoard(board);
 
             string expected = "1";
@@ -62,6 +70,7 @@ namespace DM.UnitTests
             expected = "0";
             Assert.AreEqual(expected, order.ToString());
         }
+
         [TestMethod]
         public void CanGetBoardInfo()
         {
