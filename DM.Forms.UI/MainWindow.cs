@@ -22,7 +22,7 @@ namespace DM.Forms.UI
             InitializeComponent();
 
             order = new Order();
-            br = new BoardRepositoryFile("varenr");
+            br = new BoardRepositoryFile(@"C:\varenr");
 
             ddSurface.DataSource = Enum.GetValues(typeof(Surfaces));
 
@@ -128,7 +128,7 @@ namespace DM.Forms.UI
                     {
                         if (int.TryParse(Count.Text, out count) && !string.IsNullOrWhiteSpace(Count.Text))
                         {
-                            if (Convert.ToInt32(ddExtension.SelectedValue) == 0)
+                            if (Convert.ToInt32(ddExtension.SelectedIndex) == 0)
                             {
                                 extension = true;
                             }
@@ -223,6 +223,38 @@ namespace DM.Forms.UI
 
         private void label3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int warenr;
+            if (int.TryParse(txtDeleteWareNumber.Text, out warenr) && !string.IsNullOrWhiteSpace(txtDeleteWareNumber.Text))
+            {
+                
+                var confirmResult = MessageBox.Show("Er du sikker på du vil slette order nr:" + warenr + "??",
+                                     "Bekræft slettelse",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    order.RemoveBoard(warenr);
+                    LoadBoard();
+                }
+                else
+                {
+                   
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Varenummer er ikke angivet korrekt.", "Fejl", MessageBoxButtons.OK);
+            }
 
         }
     }
