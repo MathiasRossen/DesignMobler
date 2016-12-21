@@ -30,12 +30,6 @@ namespace DM.Forms.UI
             ddExtension.Items.Insert(1, "Nej");
             ddExtension.SelectedIndex = 0;
 
-
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "VareNr" }, 0, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Længde" }, 1, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Bredde" }, 2, 0);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Antal" }, 3, 0);
-
             LoadBoard();
         }
 
@@ -53,12 +47,20 @@ namespace DM.Forms.UI
 
         private void DisplayBoardInfo(Board board)
         {
+            string extension;
+            if (board.Extension)
+                extension = "Ja";
+            else
+                extension = "Nej";
+
             tableLayoutPanel1.RowCount += 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.WareId.ToString() }, 0, tableLayoutPanel1.RowCount-1);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Length.ToString() }, 1, tableLayoutPanel1.RowCount-1);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Width.ToString() }, 2, tableLayoutPanel1.RowCount-1);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 3, tableLayoutPanel1.RowCount-1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.WareId.ToString() }, 0, tableLayoutPanel1.RowCount - 1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Length.ToString() }, 1, tableLayoutPanel1.RowCount - 1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Width.ToString() }, 2, tableLayoutPanel1.RowCount - 1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = extension }, 3, tableLayoutPanel1.RowCount - 1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Surface.ToString() }, 4, tableLayoutPanel1.RowCount - 1);
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 5, tableLayoutPanel1.RowCount - 1);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -88,7 +90,7 @@ namespace DM.Forms.UI
             {
                 txtWareNumber.Text = "";
                 MessageBox.Show("Vare nummer er ikke et tal.", "Fejl", MessageBoxButtons.OK);
-                
+
 
             }
 
@@ -114,37 +116,48 @@ namespace DM.Forms.UI
             int warenumber;
             int length;
             int width;
+            int count;
             bool extension;
             Surfaces surface;
 
-            if (int.TryParse(txtWareNumber.Text, out warenumber) || !string.IsNullOrWhiteSpace(txtWareNumber.Text))
+            if (int.TryParse(txtWareNumber.Text, out warenumber) && !string.IsNullOrWhiteSpace(txtWareNumber.Text))
             {
-                if (int.TryParse(txtLength.Text, out length) || !string.IsNullOrWhiteSpace(txtLength.Text))
+                if (int.TryParse(txtLength.Text, out length) && !string.IsNullOrWhiteSpace(txtLength.Text))
                 {
-                    if (int.TryParse(txtWidth.Text, out width) || !string.IsNullOrWhiteSpace(txtWidth.Text))
+                    if (int.TryParse(txtWidth.Text, out width) && !string.IsNullOrWhiteSpace(txtWidth.Text))
                     {
-                        if (Convert.ToInt32(ddExtension.SelectedValue) == 0)
+                        if (int.TryParse(Count.Text, out count) && !string.IsNullOrWhiteSpace(Count.Text))
                         {
-                            extension = true;
+                            if (Convert.ToInt32(ddExtension.SelectedValue) == 0)
+                            {
+                                extension = true;
+                            }
+                            else
+                            {
+                                extension = false;
+                            }
+
+                            surface = (Surfaces)Enum.Parse(typeof(Surfaces), ddSurface.SelectedValue.ToString());
+                            Board newboard = new Board(warenumber, br);
+                            newboard.Width = width;
+                            newboard.Length = length;
+                            newboard.Extension = extension;
+                            newboard.Surface = surface;
+                            newboard.Quantity = count;
+                            order.EditBoard(newboard, br);
+                            order.AddBoard(newboard);
+                            MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
+
+                            LoadBoard();
                         }
                         else
                         {
-                            extension = false;
-                        }
-                       
-                        surface = (Surfaces)Enum.Parse(typeof(Surfaces), ddSurface.SelectedValue.ToString());
-                        Board newboard = new Board(warenumber, br);
-                        newboard.Width = width;
-                        newboard.Length = length;
-                        newboard.Extension = extension;
-                        newboard.Surface = surface;
-                        newboard.Quantity =  Convert.ToInt32(Count.Text);
-                        order.EditBoard(newboard, br);
-                        order.AddBoard(newboard);
-                        MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
+                            MessageBox.Show("Antal er ikke angivet korrekt.", "Fejl", MessageBoxButtons.OK);
 
-                        LoadBoard();
+                        }
+
                     }
+
                     else
                     {
                         MessageBox.Show("Bredden er ikke angivet korrekt.", "Fejl", MessageBoxButtons.OK);
@@ -165,12 +178,18 @@ namespace DM.Forms.UI
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            PlateCalculator calc = new PlateCalculator(order);
+            calc.CalculateBoards();
+            ExcelCreator excel = new ExcelCreator(calc.Plates, @"C:\Users\casp4\Documents");
+            excel.CreateExcel();
+
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -184,6 +203,21 @@ namespace DM.Forms.UI
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }
