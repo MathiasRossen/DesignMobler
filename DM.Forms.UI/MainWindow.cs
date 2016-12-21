@@ -144,8 +144,7 @@ namespace DM.Forms.UI
                             newboard.Extension = extension;
                             newboard.Surface = surface;
                             newboard.Quantity = count;
-                            order.EditBoard(newboard, br);
-                            order.AddBoard(newboard);
+                            order.AddBoard(newboard, br);
                             MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
 
                             LoadBoard();
