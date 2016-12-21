@@ -67,10 +67,10 @@ namespace DM.Core
                 boards[index].Width = board.Width;
                 boards[index].Surface = board.Surface;
                 boards[index].Extension = board.Extension;
-                br.SaveBoard(board);
             }
-        }
 
+            br.SaveBoard(board);
+        }
              
         #region Overrides
 

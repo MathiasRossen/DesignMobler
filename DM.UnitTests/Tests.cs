@@ -72,19 +72,21 @@ namespace DM.UnitTests
         [TestMethod]
         public void OrderAddsAndUpdatesBoard()
         {
-            Board newBoard = new Board(2000, 150, 500, Surfaces.H1, true, br);
+            IBoardRepository brf = new BoardRepositoryFile(@"C:\VareNr");
+
+            Board newBoard = new Board(2000, 150, 500, Surfaces.H1, true, brf);
             newBoard.Quantity = 2;
-            Board anotherBoard = new Board(2000, 300, 400, Surfaces.H1, true, br);
+            Board anotherBoard = new Board(2000, 300, 400, Surfaces.H1, true, brf);
             anotherBoard.Quantity = 2;
-            Board thirdBoard = new Board(2000, br);
+            Board thirdBoard = new Board(2000, brf);
             thirdBoard.Quantity = 2;
 
-            order.AddBoard(newBoard, br);
-            order.AddBoard(anotherBoard, br);
-            order.AddBoard(thirdBoard, br);
+            order.AddBoard(newBoard, brf);
+            order.AddBoard(anotherBoard, brf);
+            order.AddBoard(thirdBoard, brf);
 
             Board actualBoard = order.GetBoard();
-            Board boardFromRepo = br.LoadBoard(2000);
+            Board boardFromRepo = new Board(2000, brf);
 
             Assert.AreEqual(300, actualBoard.Length);
             Assert.AreEqual(400, actualBoard.Width);
@@ -190,6 +192,19 @@ namespace DM.UnitTests
             IBoardRepository br = new BoardRepositoryFile(@"C:\VareNumre");
             Board board = new Board(1000, 100, 100, Surfaces.H1, true, br);
 
+            Board actualBoard = br.LoadBoard(1000);
+
+            Assert.AreEqual(100, actualBoard.Width);
+            Assert.AreEqual(Surfaces.H1, actualBoard.Surface);
+        }
+
+        [TestMethod]
+        public void SaveBoardToFileDirectWithRepo()
+        {
+            IBoardRepository br = new BoardRepositoryFile(@"C:\VareNumre\Ny");
+            Board board = new Board(1000, 100, 100, Surfaces.H1, true);
+
+            br.SaveBoard(board);
             Board actualBoard = br.LoadBoard(1000);
 
             Assert.AreEqual(100, actualBoard.Width);

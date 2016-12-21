@@ -42,7 +42,9 @@ namespace DM.Core
 
         public void SaveBoard(Board board)
         {
-            using(StreamWriter file = new StreamWriter(path + "/" + board.WareId + ".txt"))
+            string fullPath = path + "/" + board.WareId + ".txt";
+
+            using(StreamWriter file = new StreamWriter(fullPath))
             {
                 file.WriteLine(board.WareId);
                 file.WriteLine(board.Width);
