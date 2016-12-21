@@ -2,7 +2,7 @@
 
 namespace DM.Forms.UI
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,11 @@ namespace DM.Forms.UI
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.ddSurface = new System.Windows.Forms.ComboBox();
             this.boardBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,14 +47,9 @@ namespace DM.Forms.UI
             this.txtLength = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWareNumber = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).BeginInit();
@@ -91,6 +91,52 @@ namespace DM.Forms.UI
             this.tabPage1.Text = "Indtast Ordre";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1027, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Antal";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(569, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Overflade";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(419, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Udtræk";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(290, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Højde";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(161, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Længde";
             // 
             // btnAdd
             // 
@@ -166,6 +212,16 @@ namespace DM.Forms.UI
             this.txtWareNumber.TabIndex = 0;
             this.txtWareNumber.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Udskriv Listen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
@@ -179,84 +235,32 @@ namespace DM.Forms.UI
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Udskriv Listen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.69951F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.30049F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 53);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(32, 125);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.837564F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.16244F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1169, 561);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1100, 464);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Længde";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(290, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Højde";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(419, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Plade";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(569, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Overflade";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1027, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Antal";
-            // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 701);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainWindow";
+            this.Text = "Design Møbler U-Design";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -270,7 +274,6 @@ namespace DM.Forms.UI
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtWareNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLength;
@@ -280,13 +283,14 @@ namespace DM.Forms.UI
         private System.Windows.Forms.ComboBox ddExtension;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.BindingSource boardBindingSource;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

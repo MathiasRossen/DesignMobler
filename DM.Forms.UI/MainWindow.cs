@@ -11,13 +11,13 @@ using DM.Core;
 
 namespace DM.Forms.UI
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
 
         private Order order;
         private IBoardRepository br;
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -37,13 +37,14 @@ namespace DM.Forms.UI
             tableLayoutPanel1.Controls.Add(new Label() { Text = "Antal" }, 3, 0);
 
             LoadBoard();
-
-            
-
         }
 
         private void LoadBoard()
         {
+            tableLayoutPanel1.Controls.Clear();
+            tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.RowCount = 1;
+
             foreach (Board board in order.GetBoards())
             {
                 DisplayBoardInfo(board);
@@ -52,13 +53,12 @@ namespace DM.Forms.UI
 
         private void DisplayBoardInfo(Board board)
         {
-            tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowCount += 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.WareId.ToString() }, 0, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Length.ToString() }, 1, tableLayoutPanel1.RowCount-1);
             tableLayoutPanel1.Controls.Add(new Label() { Text = board.Width.ToString() }, 2, tableLayoutPanel1.RowCount-1);
-            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 3, tableLayoutPanel1.RowCount-1);   
-                    
+            tableLayoutPanel1.Controls.Add(new Label() { Text = board.Quantity.ToString() }, 3, tableLayoutPanel1.RowCount-1);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -143,6 +143,7 @@ namespace DM.Forms.UI
                         order.AddBoard(newboard);
                         MessageBox.Show("Varenr: " + warenumber.ToString() + " er nu blevet tilføjet.");
 
+                        LoadBoard();
                     }
                     else
                     {
@@ -164,15 +165,25 @@ namespace DM.Forms.UI
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadBoard();
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
         {
 
         }
