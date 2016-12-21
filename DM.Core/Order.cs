@@ -13,7 +13,9 @@ namespace DM.Core
             if (!boards.Exists(x => x.Equals(board)))
                 boards.Add(board);
             else
+            {
                 boards.Find(x => x.WareId == board.WareId).Quantity += board.Quantity;
+            }
         }
 
         public void AddBoard(Board board, IBoardRepository br)
@@ -58,8 +60,12 @@ namespace DM.Core
 
         public void EditBoard(Board board, IBoardRepository br)
         {
-            Board boardToEdit = GetBoard(board.WareId);
-            boardToEdit = new Board(board.WareId, board.Length, board.Width, board.Surface, board.Extension, br);
+            if (boards.Exists(x => x.WareId == board.WareId))
+            {
+                int index = boards.FindIndex(x => x.WareId == board.WareId);
+                boards[index] = board;
+                br.SaveBoard(board);
+            }
         }
 
              

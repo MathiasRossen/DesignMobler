@@ -40,7 +40,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanDeleteBoardFromOrder()
         {
-            Order order = new Order();
             order.AddBoard(new Board(100, 100));
             order.AddBoard(new Board(150, 150));
 
@@ -59,7 +58,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanClearBoardsFromOrder()
         {
-            Order order = new Order();
             order.AddBoard(new Board(100, 100));
             order.AddBoard(new Board(150, 150));
 
@@ -72,10 +70,25 @@ namespace DM.UnitTests
         }
 
         [TestMethod]
+        public void OrderAddsAndUpdatesBoard()
+        {
+            order.AddBoard(new Board(2000, 150, 500, Surfaces.H1, true), br);
+            order.AddBoard(new Board(2000, 300, 400, Surfaces.H1, true), br);
+
+            Board actualBoard = order.GetBoard();
+            Board boardFromRepo = br.LoadBoard(2000);
+
+            Assert.AreEqual(300, actualBoard.Length);
+            Assert.AreEqual(400, actualBoard.Width);
+            Assert.AreEqual(2, actualBoard.Quantity);
+
+            Assert.AreEqual(300, boardFromRepo.Length);
+            Assert.AreEqual(400, boardFromRepo.Width);
+        }
+
+        [TestMethod]
         public void CanGetBoardInfo()
         {
-            Order order = new Order();
-            IBoardRepository br = new BoardRepository();
             order.AddBoard(new Board(1000, br));
 
             Board board = order.GetBoard();
@@ -88,8 +101,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanFindBoardByWareId()
         {
-            Order order = new Order();
-            IBoardRepository br = new BoardRepository();
             order.AddBoard(new Board(1000, br));
             order.AddBoard(new Board(1100, br));
             order.AddBoard(new Board(1200, br));
@@ -114,8 +125,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanAddMoreBoardsOfSameType()
         {
-            Order order = new Order();
-            IBoardRepository br = new BoardRepository();
             order.AddBoard(new Board(1000, br));
             order.AddBoard(new Board(1000, br));
 
@@ -127,8 +136,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanEditQuantity()
         {
-            Order order = new Order();
-            IBoardRepository br = new BoardRepository();
             Board board = new Board(1000, br);
             board.Quantity = 5;
             order.AddBoard(board);
@@ -142,7 +149,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void CanAddTableNotInRepository()
         {
-            IBoardRepository br = new BoardRepository();
             Board board = new Board(1400, br);
 
             board.Width = 340;
@@ -160,7 +166,6 @@ namespace DM.UnitTests
         [TestMethod]
         public void RepoCanEditBoard()
         {
-            IBoardRepository br = new BoardRepository();
             Board board = new Board(1000, 350, 400, Surfaces.F2, false, br);
 
             board = br.LoadBoard(1000);
@@ -259,7 +264,7 @@ namespace DM.UnitTests
             pc.CalculateBoards();
 
             ExcelCreator ec = new ExcelCreator(pc.Plates, @"C:\Users\Mathias\Documents\PathToExcel");
-            ec.CreateExcel();
+            //ec.CreateExcel();
         }
     }
 }
